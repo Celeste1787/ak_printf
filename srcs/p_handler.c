@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:49:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/20 18:28:11 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:23:27 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	ft_print_addr(void *ptr)
 		i--;
     while (i >= 0)
     {
-        ft_putchar(hex[addr[i] / 16]);
-        ft_putchar(hex[addr[i] % 16]);
+        ft_put_n_count_char(hex[addr[i] / 16]);
+        ft_put_n_count_char(hex[addr[i] % 16]);
         i--;
 		wrote += 2;
     }
@@ -40,7 +40,7 @@ int	p_handler(va_list arg)
 	size_t n;
 
 	n = va_arg(arg, size_t);
-	if (!n)
+	if (n == 0)
 	{
 		write(1, "(nil)", 5);
 		return (5);

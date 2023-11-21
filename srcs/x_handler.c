@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   d_handler.c                                        :+:      :+:    :+:   */
+/*   x_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 16:56:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/21 18:14:45 by akdovlet         ###   ########.fr       */
+/*   Created: 2023/11/21 16:48:49 by akdovlet          #+#    #+#             */
+/*   Updated: 2023/11/21 18:44:56 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_put_n_count_nbr(int n, int count)
+int	ft_put_n_count_hex(unsigned int n, int count, int bin)
 {
-	long	x;
 	int		tmp;
+	char	*base;
+	char	*cbase;
 
-	x = (long) n;
 	tmp = count;
-	if (x < 0)
-	{
-		x *= -1;
-		ft_put_n_count_char('-');
-		tmp++;
-	}
-	if (x > 9)
-		tmp = ft_put_n_count_nbr(x / 10, tmp + 1);
-	ft_put_n_count_char((x % 10) + 48);
-	return (tmp);
+	base = "0123456789abcdef";
+	cbase = "0123456789ABCDEF";
+	if (n >= 16)
+		count = ft_put_n_count_hex(n / 16, count + 1, bin);
+	if (bin)
+		ft_put_n_count_char(base[n % 16]);
+	else
+		ft_put_n_count_char(cbase[n % 16]);
+	return (count);
 }
 
-int	d_handler(va_list arg)
+int	x_handler(va_list arg, int bin)
 {
-	int	n;
+	unsigned int	hex;
 
-	n = va_arg(arg, int);
-	return (ft_put_n_count_nbr(n, 1));
+	hex = va_arg(arg, unsigned int);
+	return (ft_put_n_count_hex(hex, 1, bin));
 }

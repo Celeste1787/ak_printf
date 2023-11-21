@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/20 18:28:11 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:25:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,17 @@ int ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			{
-				wrote += ft_draft(str[i + 1], arg);
-				i++;
-			}
+		{
+			wrote += ft_draft(str[i + 1], arg);
+			i++;
+		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_put_n_count_char(str[i]);
 			wrote++;
 		}
 		i++;
 	}
+	va_end(arg);
 	return (wrote);
 }

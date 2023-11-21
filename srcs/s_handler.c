@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:43:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/20 18:28:11 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:58:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,17 @@ int ft_strlen(char *str)
     return (i);
 }
 
-void    ft_putstr(char *str)
+int   ft_putstr(char *str)
 {
-    write(1, str, ft_strlen(str));
+    return(write(1, str, ft_strlen(str)));
+}
+
+int	s_handler(va_list arg)
+{
+	char	*str;
+	
+	str = va_arg(arg, char *);
+	if (!str)
+		return (ft_putstr("(null)"));
+	return (ft_putstr(str));
 }

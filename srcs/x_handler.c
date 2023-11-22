@@ -6,13 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:48:49 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/21 18:44:56 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:31:11 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_put_n_count_hex(unsigned int n, int count, int bin)
+int	ft_put_n_count_hex(size_t n, int count, int bin)
 {
 	int		tmp;
 	char	*base;

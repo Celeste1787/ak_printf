@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:00:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/21 18:31:57 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:28:08 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_draft(char flag, va_list arg)
 	else if (flag == 'X')
 		wrote = x_handler(arg, 0);
 	else if (flag == '%')
-		wrote = write(1, "%", 1);	
+		wrote = write(1, "%", 1);
 	else
 		return (-1);
 	return (wrote);

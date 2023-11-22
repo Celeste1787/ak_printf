@@ -6,15 +6,15 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/11/21 18:25:42 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:28:38 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list arg;
+	va_list	arg;
 	int		wrote;
 	int		i;
 
